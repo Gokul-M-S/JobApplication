@@ -1,0 +1,5 @@
+.mydiv{
+    background-color: aliceblue;
+    display: grid;
+    grid-template-columns: 80% 10% 10%;
+}

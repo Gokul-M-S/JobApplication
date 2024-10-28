@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+
+    <filter>
+        <filter-name>RegistrationFilter</filter-name>
+        <filter-class>com.example.registrationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>RegistrationFilter</filter-name>
+        <url-pattern>/registration</url-pattern>
+    </filter-mapping>
+    <servlet>
+        <servlet-name>RegistrationPage</servlet-name>
+        <servlet-class>com.example.registrationPage</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>RegistrationPage</servlet-name>
+        <url-pattern>/registrationPage</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>loginPage</servlet-name>
+        <servlet-class>com.example.loginPage</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>loginPage</servlet-name>
+        <url-pattern>/loginPage</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>registration</servlet-name>
+        <servlet-class>com.example.registration</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>registration</servlet-name>
+        <url-pattern>/registration</url-pattern>
+    </servlet-mapping>
+</web-app>

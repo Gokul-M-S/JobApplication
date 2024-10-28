@@ -1,0 +1,59 @@
+body{
+    background-color: 	#f4f6f5;
+}
+
+.mydiv{
+    background-color: aliceblue;
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+.already{
+    justify-self: end;
+}
+input{
+    outline: none;
+    border: none;
+}
+.outerDiv{
+    display:grid;
+    grid-template-columns: 2fr 2fr;
+    margin : 5% 10%;
+    padding : 0% 10% 0%;
+}
+.innerDiv1{
+    background-color: aliceblue;
+    grid-row: 1fr;
+    display:grid;
+    grid-row-gap: 0cap;
+    justify-items: center;
+    height:350px;
+    overflow: auto;
+    height:280px;
+    margin-top: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+.innerDiv2{
+    background-color: aliceblue;
+    height:300px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display:grid;
+}
+#leftSide{
+    display:grid;
+    grid-template-columns: 15% 10% 30% 20%;
+}
+#jobSearchName,#jobSearch{
+    align-self:center;
+}
+
+@media (min-width: 600px) {
+    .mydiv {
+        grid-template-columns: 70% 30%; /* Two columns for larger screens */
+    }
+    .outerDiv {
+        grid-template-columns: 2fr 2fr; /* Two columns */
+    }
+}
+input:focus:has(div){
+    border: 2px solid black;
+}

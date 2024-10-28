@@ -1,0 +1,27 @@
+Home page
+Sign up page 1
+hr Sign Up page 2
+login page
+terms and conditions
+privacy policy
+profile page
+job search page
+user page
+hr page
+applied page
+invite page
+hr Job Post
+
+
+
+ "C:\Program Files (x86)\Apache Tomcat\apache-tomcat-9.0.95\lib\*;." \* all the java files of all the folder . for same folder
+
+ move .*class "C:\Program Files (x86)\Apache Tomcat\apache-tomcat-9.0.95\webapps\naaukri\WEB-INF\classes\com\example"
+
+
+
+
+
+        
+        
+        

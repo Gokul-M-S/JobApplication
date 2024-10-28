@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naaukri</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/naaukri/js/SignUp.js"></script>    
+    <link rel="stylesheet" href="/naaukri/css/SignUp.css">
+</head>
+<body>
+    <div class="mydiv" >
+        <div>
+            <h3 style="color: rgb(16, 55, 252);"><img src="/naaukri/images/naaukri.png" alt="" width="2%" height="2%">Naaukri</h3>
+        </div>
+        <div class="already">
+            <p> Already Registered <b id="login">Login</b > here </p>
+        </div>
+    </div>
+
+    <div class="outerDiv">   
+            <div class="innerDiv1">
+                <div>
+                    <center>
+                        <img src="/naaukri/images/Career.jpg" height="80%" width="80%"><br>
+                        <h3>On Registering We Can</h3>
+                    </center>
+                </div>
+                <div>
+                    <p>Build profile and</p>
+                </div>
+                <div>
+                    <p>Recurites can go through our profile</p>
+                </div>
+                <div>
+                    <p>Can contact through phone or email</p>
+                </div>
+                
+            </div>
+            <div class="innerDiv2">   
+                <form id="registrationForm">
+                    <p align="center"> <b> Search a job for you career growth </b> </p>
+                    <p align="center">CREATE A NAUKRI ACCOUNT</p>
+                
+                        <div>
+                            <label for="emailId"><b>Email Id:</b></label><br>
+                        </div>
+                        <div>
+                            <input type="email" id="emailId"placeholder="Enter the email id" size="60%">
+                        </div>
+                    
+                        <div>
+                            <label for="username"><b>Username</b></label><br>
+                        </div>
+                        <div>
+                            <input type="text" id="username" placeholder="Enter the username" required size="60%">
+                        </div>
+                    
+                        <div>
+                            <label for="password"><b>Password</b></label><br>
+                        </div>
+                        <div>
+                            <input type="password" id="password" placeholder="Enter the password" required size="60%">
+                        </div>
+                    
+                        <div>
+                            <label for="rePassword"><b>Confirm Password</b></label><br>
+                        </div>
+                        <div>
+                            <input type="password" id="rePassword" placeholder="Retpe the password" required size="60%">
+                        </div>
+                    
+                        <div>
+                            <label for="phoneNumber"><b>Phone Number</b></label><br>
+                        </div>
+                        <div>
+                            +91<input type="text"  id="phoneNumber" maxlength="10" pattern="[0-9]{10}" size="56%">
+                        </div>
+                        <div>
+                            <label for="userType">Hr/Job seeker</label>
+                        </div>
+                        <div>
+                            <select id="userType" required>
+                                <option value=0 selected></option>
+                                <option value=1>User</option>
+                                <option value=2>Hr</option>
+                            </select>
+                        </div>
+                        <div id="user" style="display:none;">
+                            <div id="jobExprience1"style="display: inline-block">
+                                <div style="display: inline-flex;">
+                                    <div>
+                                        <input type="radio" id="Fresher" value="1" name="Exprience">
+                                    </div>
+                                    <div>
+                                        <label for="Fresher">
+                                            <h>Fresher</h>
+                                            <p>I am Fresher</p>
+                                            <p>I am looking for a job</p>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div style="display: inline-flex;">
+                                    <div>
+                                        <input type="radio" id="Exprience" value="2" name="Exprience">
+                                    </div>
+                                    <div>
+                                        <label for="Exprience">
+                                            <h>Exprience</h>
+                                            <p>I am Exprience</p>
+                                            <p>With including internship</p>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="resume">Upload Resume</label>
+                            </div>
+                            <div>
+                                <input type="file" id="resume" placeholder="uploadResume" size="60%">
+                            </div>
+                        </div>
+                        <div id="hr" style="display:none">
+                            <div>
+                                <label for="companyName">Company Name</label>
+                            </div>
+                            <div>
+                                <input type="text" id="companyName" size="60%" placeholder="Enter the company name">
+                            </div>
+                            <div>
+                                <label for="companyAddress">Company Address</label>
+                            </div>
+                            <div>
+                                <input type="text" id="companyAddress" size="60%" placeholder="Enter the company address">
+                            </div>
+                        </div><br>
+                    <center><button id="register" type="button">Register</button></center>
+                </form>
+            </div>
+            
+    </div>
+</body> 
+</html>
