@@ -11,19 +11,42 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import java.io.IOException;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.sql.SQLException;
+import java.util.logging.Logger;
+
 public class registrationFilter implements Filter {
     public void init(FilterConfig fConfig) throws ServletException {}
     
+    private Database database = new Database();
     public void doFilter(ServletRequest srequest, ServletResponse sresponse, FilterChain chain) throws IOException, ServletException {
+        System.out.println("Entered Registration Filter class!!");
+        Logger logger = Logger.getLogger(registrationFilter.class.getName());
+        logger.info("Enter the filter class");
         HttpServletRequest request = (HttpServletRequest) srequest; 
         HttpServletResponse response= (HttpServletResponse) sresponse;
         String errorMessage = "";
         boolean hasError = false;
-        try{
+        try(Connection conn = DriverManager.getConnection(database.getUrl(),database.getUser(),database.getPass())){
             // Validate Email Id
             String emailId = request.getParameter("emailId");
             checkEmailId(emailId);
-            
+            String sql;
+            Statement pstmt;
+            ResultSet rs;  
+            try{
+                sql = "Select * from userinformation where emailid ='"+emailId+"';";
+                pstmt = conn.createStatement();
+                rs = pstmt.executeQuery(sql);
+                if(rs.next()){
+                    throw new Exception("Email Id can't be same !!");
+                }
+            } catch (Exception e) {
+                throw new Exception(e.getMessage());
+            } 
             // Validate UserName
             String userName = request.getParameter("userName");
             checkUserName(userName);
@@ -37,7 +60,16 @@ public class registrationFilter implements Filter {
             //Validate PhoneNumber
             String phoneNumber = request.getParameter("phoneNumber");
             checkPhoneNumber(phoneNumber);
-
+            try{
+                sql = "Select * from userinformation where phoneNumber ='"+phoneNumber+"';";
+                pstmt = conn.createStatement();
+                rs = pstmt.executeQuery(sql);
+                if(rs.next()){
+                    throw new Exception("Phone Number can't be same !!");
+                }
+            } catch (Exception e) {
+                throw new Exception(e.getMessage());
+            } 
             //Validate UserType either jobseeker or hr
             int userType = 0;
             try{
@@ -79,7 +111,7 @@ public class registrationFilter implements Filter {
             }
 
         // Continue with the filter chain if no errors
-        chain.doFilter(request,response);
+        chain.doFilter(srequest,sresponse);
 
     }
 
@@ -88,8 +120,8 @@ public class registrationFilter implements Filter {
         if (email == null || email.isEmpty()) {
             throw new Exception("Email Id can't be empty !!");
         }
-        if (email.length() > 30) {
-            throw new Exception("Email Id can't be longer than 30 characters !!");
+        if (email.length() > 40) {
+            throw new Exception("Email Id can't be longer than 40 characters !!");
         }
     }
 
@@ -174,8 +206,8 @@ public class registrationFilter implements Filter {
         if (companyName == null || companyName.isEmpty()) {
             throw new Exception("Company Name can't be empty !!");
         }
-        if (companyName.length() > 30) {
-            throw new Exception("Company Name can't be longer than 30 characters !!");
+        if (companyName.length() > 40) {
+            throw new Exception("Company Name can't be longer than 40 characters !!");
         }
     }
 
@@ -183,8 +215,8 @@ public class registrationFilter implements Filter {
         if (companyAddress == null || companyAddress.isEmpty()) {
             throw new Exception("Company Address can't be empty !!");
         }
-        if (companyAddress.length() > 40) {
-            throw new Exception("Company Address can't be longer than 40 characters !!");
+        if (companyAddress.length() > 50) {
+            throw new Exception("Company Address can't be longer than 50 characters !!");
         }
     }
     

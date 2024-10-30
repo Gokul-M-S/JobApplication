@@ -14,9 +14,9 @@ hr Job Post
 
 
 
- "C:\Program Files (x86)\Apache Tomcat\apache-tomcat-9.0.95\lib\*;." \* all the java files of all the folder . for same folder
+"C:\Program Files (x86)\Apache Tomcat\apache-tomcat-9.0.95\lib\*;." \* all the java files of all the folder . for same folder
 
- move .*class "C:\Program Files (x86)\Apache Tomcat\apache-tomcat-9.0.95\webapps\naaukri\WEB-INF\classes\com\example"
+ move *.class "C:\Program Files (x86)\Apache Tomcat\apache-tomcat-9.0.95\webapps\naaukri\WEB-INF\classes\com\example"
 
 
 
