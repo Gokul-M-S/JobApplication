@@ -54,6 +54,8 @@ $(document).ready(function(){
             success: function(data) {
                 alert(data); // Alert the server response
                 $('#registrationForm').get(0).reset();
+                hr.hide();
+                user.hide();
             },
             error: function(jqXHR, textStatus, errorThrown){
                 alert("An error occurred: " + textStatus);
