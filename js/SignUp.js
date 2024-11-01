@@ -21,7 +21,14 @@ $(document).ready(function(){
     $("#login").click(function(){
         window.location.href = "http://localhost:8080/naaukri/loginPage";
     });
-
+    // Exprience is how many years
+    $("#Fresher").click(function(){
+        $("#yearsDisplay").hide();
+    });
+    $("#Exprience").click(function(){
+        $("#yearsDisplay").css("display", "inline-flex");
+    });
+    
     // Register button click event
     $('#register').click(function(){
         let list = new FormData(); // Create a new FormData object
@@ -33,7 +40,7 @@ $(document).ready(function(){
         list.append('phoneNumber', $("#phoneNumber").val()); // Append phone number
         let userType = $("#userType").val();
         list.append('userType', userType);
-
+        list.append('years',$("#years").val());
         if(userType == 1){ // Job seeker
             list.append('experience', $("input[name='Exprience']:checked").val()); // Get selected experience radio
             let resume = $('#resume')[0].files[0];

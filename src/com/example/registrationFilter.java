@@ -74,6 +74,7 @@ public class registrationFilter implements Filter {
             int userType = 0;
             try{
                 userType = Integer.parseInt(request.getParameter("userType"));
+                checkUserType(userType);
             }catch(Exception e){
                 throw new Exception("User Type can be 1 or 2 !!");
             }
@@ -97,6 +98,13 @@ public class registrationFilter implements Filter {
                     }
                 }catch(Exception e){
                     throw new Exception("Exprience can be from 1 or 2 !!");
+                }
+                int years = 0;
+                try{
+                    years = Integer.parseInt(request.getParameter("experience"));
+                    checkYears(years);
+                }catch(Exception e){
+                    throw new Exception("Years can from 1 to 30");
                 }
             }else if(userType ==2){
                 String companyName= request.getParameter("companyName");
@@ -193,6 +201,17 @@ public class registrationFilter implements Filter {
         }
     }
 
+    public void checkUserType(int type) throws Exception {
+        if(!(type==1 || type==2)){
+            throw new Exception("User Type can be 1 or 2!!");
+        }
+    }
+
+    public void checkYears(int years) throws Exception {
+        if(years<=1 || years>=30){
+            throw new Exception("Years can from 1 to 30 !!");
+        }
+    }
     public void checkResumeName(String resumeName) throws Exception {
         if (resumeName == null || resumeName.isEmpty()) {
             throw new Exception("Resume Name can't be empty !!");

@@ -123,7 +123,7 @@ public class registration extends HttpServlet{
                 logger.info("Inserting into exprience");
                 if(userType ==1){
                     // adding exprience to the table
-                    
+                    years = Integer.parseInt(request.getParameter("years"));
                     try {
                         st = conn.createStatement();
                         query = "Insert into exprience(userid,exprience,years) \n" 
