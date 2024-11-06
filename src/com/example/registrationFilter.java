@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 public class registrationFilter implements Filter {
     public void init(FilterConfig fConfig) throws ServletException {}
     
-    private Database database = new Database();
+    private Database database = Database.getInstance();
     public void doFilter(ServletRequest srequest, ServletResponse sresponse, FilterChain chain) throws IOException, ServletException {
         System.out.println("Entered Registration Filter class!!");
         Logger logger = Logger.getLogger(registrationFilter.class.getName());
@@ -131,6 +131,15 @@ public class registrationFilter implements Filter {
         if (email.length() > 40) {
             throw new Exception("Email Id can't be longer than 40 characters !!");
         }
+        boolean isContainAt = false;
+        for(int i=0;i<email.length();i++){
+            if(email.charAt(i)=='@'){
+                isContainAt = true;
+            }
+        }
+        if(!isContainAt){
+            throw new Exception("Email should contain @ symbol in it");
+        }
     }
 
     public void checkUserName(String userName) throws Exception {
@@ -212,6 +221,7 @@ public class registrationFilter implements Filter {
             throw new Exception("Years can from 1 to 30 !!");
         }
     }
+    
     public void checkResumeName(String resumeName) throws Exception {
         if (resumeName == null || resumeName.isEmpty()) {
             throw new Exception("Resume Name can't be empty !!");

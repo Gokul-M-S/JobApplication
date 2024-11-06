@@ -39,4 +39,8 @@ input{
 }
 .innerDiv2{
     background-color: aliceblue;
+
+}
+#registrationForm{
+    padding-left: 20px;
 }

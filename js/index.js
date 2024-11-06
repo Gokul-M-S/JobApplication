@@ -5,6 +5,6 @@ $(document).ready(function() {
         window.location.href="http://localhost:8080/naaukri/registrationPage";
     });
     $(".login").click(function(){
-        window.location.href="http://localhost:8080/naaukri/loginPage"
+        window.location.href="http://localhost:8080/naaukri/loginPage";
     })
 });

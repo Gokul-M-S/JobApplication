@@ -26,10 +26,13 @@ import java.util.logging.Logger;
 @MultipartConfig
 public class registration extends HttpServlet{
    
+    
+    private Database database = Database.getInstance();
     private static final String resumePath = "D:\\gokul\\ResumeFiles";
+
+
     public void init() throws ServletException{}
     
-    private Database database = new Database();
     private String returnResponse = "";
     public void doPost(HttpServletRequest request, HttpServletResponse response) 
         throws ServletException,IOException{

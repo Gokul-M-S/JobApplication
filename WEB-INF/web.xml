@@ -3,7 +3,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
     version="2.4">
-
+    <!--Registration-->
     <filter>
         <filter-name>RegistrationFilter</filter-name>
         <filter-class>com.example.registrationFilter</filter-class>
@@ -12,17 +12,28 @@
         <filter-name>RegistrationFilter</filter-name>
         <url-pattern>/registration</url-pattern>
     </filter-mapping>
+
+    <servlet>
+        <servlet-name>registration</servlet-name>
+        <servlet-class>com.example.registration</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>registration</servlet-name>
+        <url-pattern>/registration</url-pattern>
+    </servlet-mapping>
+    
+    <!--redirecting to page-->
     <servlet>
         <servlet-name>RegistrationPage</servlet-name>
         <servlet-class>com.example.registrationPage</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>RegistrationPage</servlet-name>
         <url-pattern>/registrationPage</url-pattern>
     </servlet-mapping>
     
-    <servlet>
+     <servlet>
         <servlet-name>loginPage</servlet-name>
         <servlet-class>com.example.loginPage</servlet-class>
     </servlet>
@@ -32,13 +43,34 @@
         <url-pattern>/loginPage</url-pattern>
     </servlet-mapping>
     
+    
+    <!--Login-->
+    <filter>
+        <filter-name>loginFilter</filter-name>
+        <filter-class>com.example.loginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>loginFilter</filter-name>
+        <url-pattern>/login</url-pattern>
+    </filter-mapping>
+
     <servlet>
-        <servlet-name>registration</servlet-name>
-        <servlet-class>com.example.registration</servlet-class>
+        <servlet-name>login</servlet-name>
+        <servlet-class>com.example.login</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>registration</servlet-name>
-        <url-pattern>/registration</url-pattern>
+        <servlet-name>login</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <!--Redirect to user Page-->
+    <servlet>
+        <servlet-name>userHome</servlet-name>
+        <servlet-class>com.example.userHome</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>userHome</servlet-name>
+        <url-pattern>/userHomepage</url-pattern>
     </servlet-mapping>
 </web-app>
