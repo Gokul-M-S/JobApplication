@@ -1,4 +1,6 @@
 package com.example;
+
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,12 +33,15 @@ public class login extends HttpServlet{
                  }else if(type.equals("2")){
                      query+="phonenumber = '";
                  }
-                 query+=username+"';";
+                 query+=username+"';";       
                  Statement st = conn.createStatement();
                  ResultSet rs = st.executeQuery(query);
                  if(rs.next()){
                     res="login";
                  }
+                 HttpSession session = request.getSession(true);
+                 session.setAttribute("userId",rs.getInt(1));
+
             }catch(Exception e){
                 res = e.getMessage();
             }

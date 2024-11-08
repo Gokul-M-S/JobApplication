@@ -19,7 +19,19 @@ $(document).ready(function(){
 
     // Redirect to login page
     $("#login").click(function(){
-        window.location.href = "http://localhost:8080/naaukri/loginPage";
+        $.get("http://localhost:8080/naaukri/index",{num:2})
+        .done(function(data,textStatus,jqXHR){
+            console.log(data);
+            console.log(textStatus);
+            var contentType = jqXHR.getResponseHeader("Content-Type");
+            console.log(contentType); 
+            if(contentType.startsWith("application/json")){
+                window.location.href=getUrl(jqXHR);
+            }
+        })
+        .fail(function(){
+            errorHandle(jqXHR);
+        })
     });
     // Exprience is how many years
     $("#Fresher").click(function(){
